@@ -11,21 +11,14 @@ webpackConfig = {
     path: './dist',
     filename: 'chat.min.js'
   },
-  externals: ['React', 'Flux', 'jQuery', '_', '$', 'Backbone', 'io'],
+  externals: ['React', 'Flux', 'jQuery', '_', '$', 'Backbone'],
   module: {
     loaders: [
       { test: /\.coffee$/, loader: "coffee-jsx-loader" }
     ]
   },
-  devServer: {
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "*"
-    }
-  },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({minimize: true}),
-    new webpack.ProvidePlugin({})
+    new webpack.optimize.UglifyJsPlugin({minimize: true})
   ],
   resolve: {
     extensions: ["", ".web.coffee", ".web.js", ".coffee", ".js"]
@@ -35,5 +28,6 @@ webpackConfig = {
 if(process.env.WEBPACK !== undefined){
   webpackConfig.output.path = './build';
 }
-
+function escapeRegExpString(str) { return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&"); }
+function pathToRegExp(p) { return new RegExp("^" + escapeRegExpString(p)); }
 module.exports = webpackConfig;
