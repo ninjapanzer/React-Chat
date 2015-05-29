@@ -1,6 +1,6 @@
 module.exports =
   users:[
-    {name:'buddy',id: 'asdjsadkfsajdf', email:'think@b.com'}
-    {name:'guy',id: 'asdfsebbfe', email:'think@g.com'}
-    {name:'friend',id: 'fsdyhre d', email:'think@f.com'}
+    { id: 'asdjsadkfsajdf', data: {name:'buddy', email:'think@b.com'} },
+    { id: 'asdfsebbfe', data: {name:'guy', email:'think@g.com'} },
+    { id: 'fsdyhred', data: {name:'friend', email:'think@f.com'} },
   ]

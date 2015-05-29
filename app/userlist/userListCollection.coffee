@@ -23,7 +23,7 @@ define([
         dispatcher.dispatch
           actionType: "user-list-updated"
           users: @get 'users'
-      @set 'users', userList
+      @set 'users', userList.users
 
   UserList
 )
