@@ -2,7 +2,10 @@ react =      require 'React'
 dispatcher = require './userListDispatcher'
 config =     require '../config'
 
+PresenceComp = require '../presence/presenceComp'
+
 module.exports = react.createClass
+  displayName: 'UserList'
 
   userListItem: {}
 
@@ -14,8 +17,9 @@ module.exports = react.createClass
     { users: [] }
 
   render: ->
-    <div>
+    <userlist>
+      Users:
       { _.map @state.users, (user)=>
-        <div style={@userListItem} dataId={user.id} dataContact={user.data.email}>{user.data.name}</div>
+        <div style={@userListItem} data-id={user.id} data-contact={user.data.email}>{user.data.name}<PresenceComp user={user} /></div>
       }
-    </div>
+    </userlist>

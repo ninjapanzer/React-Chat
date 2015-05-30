@@ -17,12 +17,9 @@
 
 react = require 'React'
 
-UserListComp = require './userlist/userListComp'
+ChatComp = require './chat/chatComp'
 
 react.render(
-  <UserListComp />,
-  $('chat userlist')[0]
+  <ChatComp/>,
+  $('chat')[0]
 )
-
-UserListCollection = require './userlist/UserListCollection'
-coll = new UserListCollection
