@@ -6,7 +6,7 @@ define([
   '../../lib/fayeClient'
 ],
 (
-  backbone
+  Backbone
   dispatcher
   fakedata
   Config

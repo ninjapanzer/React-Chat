@@ -2,21 +2,28 @@ react =      require 'React'
 dispatcher = require './chatDispatcher'
 config =     require '../config'
 
+ChatStore = require './chatStore'
+
 UserListComp =  require '../userlist/userListComp'
-UserListStore = require '../userlist/UserListStore'
 
 ChannelComp = require '../messages/channelComp'
 
 module.exports = react.createClass
   displayName: 'Chat'
 
-  userListItem: {}
+  getInitialState: ->
+    dispatcher.register (payload)=>
+      switch payload.actionType
+        when "chat-updated"
+          @setState({ channels: payload.channels, users: payload.users })
+    {channels: [], users: []}
+
 
   componentDidMount: ->
-    coll = new UserListStore
+    @chatStore = new ChatStore
 
   render: ->
     <div>
-      <UserListComp />
-      <ChannelComp />
+      <UserListComp users={@state.users} />
+      <ChannelComp channels={@state.channels} />
     </div>

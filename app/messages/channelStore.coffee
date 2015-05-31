@@ -1,7 +1,8 @@
 define([
   'Backbone'
   './messageDispatcher'
-  '../../fakedata/messagedata'
+  '../../fakedata/channeldata'
+  '../userlist/userListStore'
   '../config'
   '../../lib/fayeClient'
 ],
@@ -9,6 +10,7 @@ define([
   backbone
   dispatcher
   fakedata
+  userListStore
   Config
   Client
 )->
@@ -17,25 +19,22 @@ define([
     client: Client.client
 
     defaults:
+      id: ''
       users: []
 
-    initialize: ->
+    wireUpUserUpdate: =>
       @client.subscribe '/channel', (message)=>
+        # message = { channelId:'', userList:[] }
         switch message.actionType
-          when "update"
-            console.log 'noop'
-          when "add"
-            console.log 'noop'
-          when "remove"
-            console.log 'noop'
           when "refresh"
             @set 'users', message.payload
-      userList = fakedata
+
+    initialize: ->
+      @wireUpUserUpdate()
       @on "change reset add remove", ->
         dispatcher.dispatch
           actionType: "user-list-updated"
           users: @get 'users'
-      @set 'users', userList.users
 
   UserList
 )
