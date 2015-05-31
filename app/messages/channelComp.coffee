@@ -1,6 +1,7 @@
 react =      require 'React'
 dispatcher = require './messageDispatcher'
 config =     require '../config'
+store =      require './channelStore'
 
 MessageComp = require '../messages/messageComp'
 
@@ -10,20 +11,18 @@ UserListStore = require '../userlist/userListStore'
 module.exports = react.createClass
   displayName: 'Channel'
 
-  userListItem: {}
-
   getInitialState:->
-    {channels: []}
+    {channels: new store}
 
   componentDidMount: ->
 
   render: ->
-    debugger
     <div>
-      { _.map @props.channels, (channel)->
-        <div data-id={channel.id}>
-          <div>Channel: {channel.data.name}</div>
-          <UserListComp users={channel.data.users} />
+      { @props.channels.map (channel)->
+        data = channel.get 'data'
+        <div data-id={channel.get 'id'}>
+          <div>Channel: {data.name}</div>
+          <UserListComp users={new UserListStore(data.users)} />
           <MessageComp />
         </div>
       }

@@ -1,6 +1,8 @@
 define([
   'Backbone'
   './chatDispatcher'
+  '../userlist/userListStore'
+  '../messages/channelStore'
   '../../fakedata/chatdata'
   '../config'
   '../../lib/fayeClient'
@@ -8,11 +10,13 @@ define([
 (
   Backbone
   dispatcher
+  UserListStore
+  ChannelStore
   fakedata
   Config
   Client
 )->
-  UserList = Backbone.Model.extend
+  Chat = Backbone.Model.extend
 
     client: Client.client
 
@@ -41,8 +45,8 @@ define([
           users: @get 'users'
           channels: @get 'channels'
       @set
-        users: fakedata.users
-        channels: fakedata.channels
+        users: new UserListStore(fakedata.users)
+        channels: new ChannelStore(fakedata.channels)
 
-  UserList
+  Chat
 )

@@ -12,7 +12,7 @@ define([
   Config
   Client
 )->
-  UserList = Backbone.Model.extend
+  Message = Backbone.Model.extend
 
     client: Client.client
 
@@ -37,5 +37,9 @@ define([
           users: @get 'users'
       @set 'users', userList.users
 
-  UserList
+  MessageList = Backbone.Collection.extend({
+    model: Message
+  });
+
+  MessageList
 )

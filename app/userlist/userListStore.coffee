@@ -10,12 +10,13 @@ define([
   Config
   Client
 )->
-  UserList = Backbone.Model.extend
+  User = Backbone.Model.extend
 
     client: Client.client
 
     defaults:
-      users: []
+      id: ''
+      data: {name: '', email: '', active: false}
 
     initialize: ->
       @client.subscribe '/userlist', (message)=>
@@ -26,6 +27,9 @@ define([
         dispatcher.dispatch
           actionType: "user-list-updated"
           users: @get 'users'
+
+  UserList = Backbone.Collection.extend
+    model: User
 
   UserList
 )

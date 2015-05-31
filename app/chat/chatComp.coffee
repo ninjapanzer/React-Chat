@@ -5,8 +5,10 @@ config =     require '../config'
 ChatStore = require './chatStore'
 
 UserListComp =  require '../userlist/userListComp'
+UserListStore = require '../userlist/userListStore'
 
-ChannelComp = require '../messages/channelComp'
+ChannelComp =  require '../messages/channelComp'
+ChannelStore = require '../messages/channelStore'
 
 module.exports = react.createClass
   displayName: 'Chat'
@@ -16,7 +18,7 @@ module.exports = react.createClass
       switch payload.actionType
         when "chat-updated"
           @setState({ channels: payload.channels, users: payload.users })
-    {channels: [], users: []}
+    {channels: new UserListStore , users: new ChannelStore}
 
 
   componentDidMount: ->
