@@ -1,3 +1,4 @@
+<a href="https://codeclimate.com/github/ninjapanzer/React-Chat"><img src="https://codeclimate.com/github/ninjapanzer/React-Chat/badges/gpa.svg" /></a>
 #### A ReactJS Chat Example
 
 The point of this is to see what a prototype of a chat application in ReactJS would feel like.
