@@ -2,6 +2,7 @@ define([
   'Backbone'
   './messageDispatcher'
   '../userlist/userListStore'
+  '../messages/messageStore'
   '../../fakedata/channeldata'
   '../config'
   '../../lib/fayeClient'
@@ -10,6 +11,7 @@ define([
   Backbone
   dispatcher
   UserListStore
+  MessageStore
   fakedata
   Config
   Client
@@ -20,9 +22,9 @@ define([
 
     defaults:
       id: ''
-      data:
-        name: ''
-        users: []
+      name: ''
+      users: new UserListStore
+      messages: new MessageStore
 
     wireUpUserUpdate: ->
       @client.subscribe '/channel', (message)->
@@ -34,6 +36,7 @@ define([
     initialize: ->
       users = @get 'users'
       @set 'users', new UserListStore users
+      @set 'messages', new MessageStore
       @wireUpUserUpdate()
       @on "change reset add remove", ->
         dispatcher.dispatch

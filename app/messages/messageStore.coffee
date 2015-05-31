@@ -1,14 +1,14 @@
 define([
   'Backbone'
   './messageDispatcher'
-  '../../fakedata/messagedata'
+  '../chat/chatDispatcher'
   '../config'
   '../../lib/fayeClient'
 ],
 (
   Backbone
   dispatcher
-  fakedata
+  chatDispatcher
   Config
   Client
 )->
@@ -17,25 +17,14 @@ define([
     client: Client.client
 
     defaults:
-      users: []
+      messageText: ''
+      user: ''
+      time: 12312312312
 
     initialize: ->
-      @client.subscribe '/messages', (message)=>
-        switch message.actionType
-          when "update"
-            console.log 'noop'
-          when "add"
-            console.log 'noop'
-          when "remove"
-            console.log 'noop'
-          when "refresh"
-            @set 'users', message.payload
-      userList = fakedata
       @on "change reset add remove", ->
-        dispatcher.dispatch
-          actionType: "user-list-updated"
-          users: @get 'users'
-      @set 'users', userList.users
+        chatDispatcher.dispatch
+          actionType: "message-sent"
 
   MessageList = Backbone.Collection.extend({
     model: Message

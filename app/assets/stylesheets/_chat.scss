@@ -48,7 +48,13 @@ chat{
 }
 
 .channels--container .channel userlist{
+  @include span-columns(1);
+  @include omega();
   font-size: 0.8em;
   display: block;
-  @include span-columns(1)
+  float:right;
+}
+.channels--container .channel form{
+  display: block;
+  @include span-columns(12);
 }

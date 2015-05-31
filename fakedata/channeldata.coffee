@@ -5,12 +5,12 @@ usersForTwo = users.slice(1)
 module.exports =
   channels:[
     {
-      id: 'one', data:
-        name: 'Channel 1'
-        users: users
+      id: 'one'
+      name: 'Channel 1'
+      users: users
     }
     {
-    id: 'two', data:
+      id: 'two'
       name: 'Channel 2'
       users: usersForTwo
     }

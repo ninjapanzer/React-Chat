@@ -20,6 +20,8 @@ module.exports = react.createClass
       switch payload.actionType
         when "chat-updated"
           @setState({ channels: payload.channels, users: payload.users })
+        when "message-sent"
+          @forceUpdate()
     {channels: new UserListStore , users: new ChannelStore}
 
 
