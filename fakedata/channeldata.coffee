@@ -6,12 +6,12 @@ module.exports =
   channels:[
     {
       id: 'one', data:
-        name: 'one'
+        name: 'Channel 1'
         users: users
     }
     {
     id: 'two', data:
-      name: 'two'
+      name: 'Channel 2'
       users: usersForTwo
     }
   ]

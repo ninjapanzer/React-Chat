@@ -1,0 +1,57 @@
+$color: #F3F3F3;
+
+body{
+  margin: 0;
+}
+
+header{
+  .header--user{
+    float: right;
+    height: 1em;
+    .name{
+      padding-top: 0.9em;
+      float:left;
+      &:hover{
+        font-weight: bold;
+      }
+    }
+    .image{
+      padding-top: 0.6em;
+      float:right;
+    }
+  }
+}
+
+header{
+  background: $color;
+  height: 3.5em;
+  border-bottom: 1px solid black;
+  .elymu-title{
+    font-size: 1.3em;
+    height: 2.7em;
+    float:left;
+    padding: 0.6em 1.5em;
+    border-right: 1px solid black;
+  }
+}
+
+header .header--menu{
+  vertical-align: middle;
+  height: 3.5em;
+  float: left;
+  li{
+    &.elymu-title{
+      font-size: 1.25em;
+    }
+    padding: 0.9em 1.5em;
+    height: 100%;
+    display: inline-block;
+    border-right: 1px solid black;
+    &:hover{
+      font-weight: bold;
+      padding: 0.9em 1.4em;
+    }
+  }
+}
+
+footer{}

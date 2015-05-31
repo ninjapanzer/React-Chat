@@ -14,7 +14,7 @@ module.exports = react.createClass
     { users: new store }
 
   render: ->
-    <userlist>
+    <userlist className={@props.className}>
       Users:
       { @props.users.map (user)=>
         data = user.get 'data'

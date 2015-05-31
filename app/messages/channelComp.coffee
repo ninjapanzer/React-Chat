@@ -17,7 +17,8 @@ module.exports = react.createClass
   getInitialState:->
     {channels: new store}
 
-  componentDidMount: ->
+  componentDidUpdate: ->
+    $(".#{@channelListClass} li").first().trigger('click')
 
   toggleChannelVisibity: (event)->
     $(event.target.parentElement.parentElement.parentElement.getElementsByTagName('channel')).removeClass('is-shown')

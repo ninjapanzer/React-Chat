@@ -8,10 +8,10 @@ module.exports = react.createClass
   userListItem: {}
 
   base:
-    borderRadius: 200
+    borderRadius: '1em'
     display: 'inline-block'
-    height: '1em'
-    width: '1em'
+    height: '0.5em'
+    width: '0.5em'
     marginRight: '0.2em'
   active:
     backgroundColor: 'green'

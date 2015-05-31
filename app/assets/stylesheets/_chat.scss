@@ -1,0 +1,54 @@
+chat{
+  display: block;
+  @include outer-container;
+}
+
+.chat--container{
+  @include span-columns(12);
+}
+
+.chat--container userlist.main-users{
+  @include omega();
+  @include span-columns(2);
+}
+
+.channels--container{
+  @include span-columns(10);
+}
+
+.channels--container .channel-list{
+  @include span-columns(2);
+  @include omega();
+  ul{
+    text-align: right;
+    li{
+      padding-right: 0.5em;
+      &.is-shown{
+        border-radius: 0.5em 0 0 0.5em;
+        background: $grey
+      }
+    }
+  }
+}
+
+.channels--container channel{
+  &.is-shown{
+    display:block;
+  }
+  min-height: 10em;
+  @include span-columns(10);
+  border-radius: 0.2em;
+  background: $grey;
+  display:none
+}
+
+.channels--container .channel messages{
+  display: block;
+  @include span-columns(11)
+}
+
+.channels--container .channel userlist{
+  font-size: 0.8em;
+  display: block;
+  @include span-columns(1)
+}

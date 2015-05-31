@@ -17,7 +17,8 @@ webpackConfig = {
   module: {
     loaders: [
       { test: /\.coffee$/, loader: "coffee-jsx-loader" },
-      { test: /\.scss$/, loader: "style!css!sass" }
+      { test: /\.scss$/, loader: "style!css!sass" },
+      { test: /\.png$/, loader: "url-loader?limit=100000" }
     ]
   },
   plugins: [

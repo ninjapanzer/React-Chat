@@ -13,6 +13,7 @@ ChannelStore = require '../messages/channelStore'
 module.exports = react.createClass
   displayName: 'Chat'
   containerClass: 'chat--container'
+  userlistClass: 'main-users'
 
   getInitialState: ->
     dispatcher.register (payload)=>
@@ -29,5 +30,5 @@ module.exports = react.createClass
     component = this
     <div className={component.containerClass}>
       <ChannelComp channels={@state.channels} />
-      <UserListComp users={@state.users} />
+      <UserListComp className={component.userlistClass} users={@state.users} />
     </div>

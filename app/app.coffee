@@ -23,6 +23,8 @@ jQuery = require 'jQuery'
 
 ChatComp = require './chat/chatComp'
 
+HeaderComp = require './layout/header'
+
 Client = require '../lib/fayeClient'
 
 window.client = require '../lib/fayeClient'
@@ -38,4 +40,9 @@ jQuery(document).on "faye:on", (event) ->
 react.render(
   <ChatComp/>,
   jQuery('chat')[0]
+)
+
+react.render(
+  <HeaderComp/>,
+  jQuery('header')[0]
 )
