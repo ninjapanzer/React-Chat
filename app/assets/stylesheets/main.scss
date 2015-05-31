@@ -23,23 +23,12 @@ chat{
 }
 
 .channels--container channel{
-  background:black;
-}
-
-.channels--container .channel userlist{
   &.is-shown{
     display:block;
   }
-  display:none;
+  display:none
 }
 
-.channels--container .channel message{
-  &.is-shown{
-    display:block;
-  }
-  display:none;
-}
+.channels--container .channel userlist{}
 
-.is-shown{
-  display:block
-}
+.channels--container .channel message{}

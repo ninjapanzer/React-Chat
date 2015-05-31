@@ -19,15 +19,21 @@ module.exports = react.createClass
   componentDidMount: ->
 
   toggleChannelVisibity: (event)->
-    $(event.target.parentElement.parentElement.getElementsByTagName('userlist')).toggleClass('is-shown')
+    $(event.target.parentElement.parentElement.parentElement.getElementsByTagName('channel')).removeClass('is-shown')
+    $("##{event.target.parentElement.dataset.id}").toggleClass('is-shown')
 
   render: ->
     component = this
     <channels className={component.containerClass}>
+      <ul>
+        { @props.channels.map (channel)->
+          data = channel.get 'data'
+          <li data-id={channel.get 'id'} onClick={component.toggleChannelVisibity}>Channel: {data.name}</li>
+        }
+      </ul>
       { @props.channels.map (channel)->
         data = channel.get 'data'
-        <channel className={component.channelClass}  data-id={channel.get 'id'}>
-          <div onClick={component.toggleChannelVisibity}>Channel: {data.name}</div>
+        <channel id={channel.get 'id'} className={component.channelClass} data-id={channel.get 'id'}>
           <UserListComp users={new UserListStore(data.users)} />
           <MessageComp />
         </channel>
