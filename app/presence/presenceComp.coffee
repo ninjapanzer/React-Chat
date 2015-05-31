@@ -7,23 +7,24 @@ module.exports = react.createClass
 
   userListItem: {}
 
-  active:
-    display: 'inline'
-    backgroundColor: 'green'
+  base:
+    borderRadius: 200
+    display: 'inline-block'
     height: '1em'
     width: '1em'
+    marginRight: '0.2em'
+  active:
+    backgroundColor: 'green'
   inactive:
     backgroundColor: 'red'
-    height: '1em'
-    width: '1em'
 
   componentDidMount: ->
 
   status: ->
-    if true
-      return @active
+    if @props.active
+      return _.extend {}, @base, @active
     else
-      return @inactive
+      return _.extend {}, @base, @inactive
 
   render: ->
-    <div style={@active}></div>
+    <div style={@status()}></div>

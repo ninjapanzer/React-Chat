@@ -20,6 +20,6 @@ module.exports = react.createClass
     <userlist>
       Users:
       { _.map @state.users, (user)=>
-        <div style={@userListItem} data-id={user.id} data-contact={user.data.email}>{user.data.name}<PresenceComp user={user} /></div>
+        <div style={@userListItem} data-id={user.id} data-contact={user.data.email}><PresenceComp active={user.data.active} /> {user.data.name}</div>
       }
     </userlist>

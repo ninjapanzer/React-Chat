@@ -1,0 +1,3 @@
+web: npm run dev
+faye: coffee dev/fayeServer.coffee
+redis: redis-server

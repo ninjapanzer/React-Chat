@@ -13,13 +13,27 @@
 
 #body = require("./thing.jade")();
 #console.log body
-#$("body").html(body);
+#jQuery("body").html(body);
 
 react = require 'React'
 
+jQuery = require 'jQuery'
+
 ChatComp = require './chat/chatComp'
+
+Client = require '../lib/fayeClient'
+
+window.client = require '../lib/fayeClient'
+
+console.log Client
+
+jQuery(document).on "faye:off", (event) ->
+  console.log "faye offline"
+
+jQuery(document).on "faye:on", (event) ->
+  console.log "faye online"
 
 react.render(
   <ChatComp/>,
-  $('chat')[0]
+  jQuery('chat')[0]
 )

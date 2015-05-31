@@ -2,8 +2,8 @@ react =      require 'React'
 dispatcher = require './chatDispatcher'
 config =     require '../config'
 
-UserListComp =       require '../userlist/userListComp'
-UserListCollection = require '../userlist/UserListCollection'
+UserListComp =  require '../userlist/userListComp'
+UserListStore = require '../userlist/UserListStore'
 
 ChannelComp = require '../messages/channelComp'
 
@@ -13,7 +13,7 @@ module.exports = react.createClass
   userListItem: {}
 
   componentDidMount: ->
-    coll = new UserListCollection
+    coll = new UserListStore
 
   render: ->
     <div>
