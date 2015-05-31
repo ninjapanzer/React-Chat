@@ -12,20 +12,37 @@ chat{
   @include outer-container;
 }
 
-.chat--container{}
+.chat--container{
+  @include span-columns(12);
+}
 
 .chat--container userlist{
-  @include span-columns(8);
+  @include omega();
+  @include span-columns(2);
 }
 
 .channels--container{
-  @include span-columns(2);
+  @include span-columns(10);
+}
+
+.channels--container .channel-list{
+  @include shift(1);
+  @include span-columns(1);
+  @include omega();
+  ul{
+    text-align: right;
+    li.is-shown{
+      background: $grey
+    }
+  }
 }
 
 .channels--container channel{
   &.is-shown{
     display:block;
   }
+  @include span-columns(10);
+  background: $grey;
   display:none
 }
 
