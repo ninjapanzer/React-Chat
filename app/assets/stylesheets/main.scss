@@ -1,0 +1,12 @@
+$green: #31D2B1;
+$black: #2D3036;
+$headers: #EFF5FE;
+$grey: #ABB6C6;
+
+@import './vendor/bourbon/bourbon';
+@import './vendor/neat/neat';
+@import './vendor/base/base';
+
+body{
+  @include outer-container;
+}

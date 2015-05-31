@@ -4,6 +4,8 @@ var bower_dir = __dirname + '/bower_components';
 var resolveBowerPath = function(componentPath) {
     return path.join(bower_dir, componentPath);
 };
+var neat = require('node-neat').includePaths.reverse();
+console.log("style!css!sass?includePaths[]=" + neat);
 webpackConfig = {
   entry: './app/app.coffee',
   devtool: "source-map",
@@ -14,7 +16,8 @@ webpackConfig = {
   externals: ['React', 'Flux', 'jQuery', '_', '$', 'Backbone'],
   module: {
     loaders: [
-      { test: /\.coffee$/, loader: "coffee-jsx-loader" }
+      { test: /\.coffee$/, loader: "coffee-jsx-loader" },
+      { test: /\.scss$/, loader: "style!css!sass" }
     ]
   },
   plugins: [

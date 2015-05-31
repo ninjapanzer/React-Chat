@@ -15,6 +15,8 @@
 #console.log body
 #jQuery("body").html(body);
 
+css = require './assets/stylesheets/main.scss'
+console.log css
 react = require 'React'
 
 jQuery = require 'jQuery'
