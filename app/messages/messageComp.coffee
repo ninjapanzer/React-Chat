@@ -10,6 +10,6 @@ module.exports = react.createClass
   componentDidMount: ->
 
   render: ->
-    <div>
-      <span>BY User</span><span>HI</span>
-    </div>
+    <messages>
+      <message><span>BY User</span><span>HI</span></message>
+    </messages>

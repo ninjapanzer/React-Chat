@@ -4,9 +4,42 @@ $headers: #EFF5FE;
 $grey: #ABB6C6;
 
 @import './vendor/bourbon/bourbon';
+@import 'grid-settings';
 @import './vendor/neat/neat';
 @import './vendor/base/base';
 
-body{
+chat{
   @include outer-container;
+}
+
+.chat--container{}
+
+.chat--container userlist{
+  @include span-columns(8);
+}
+
+.channels--container{
+  @include span-columns(2);
+}
+
+.channels--container channel{
+  background:black;
+}
+
+.channels--container .channel userlist{
+  &.is-shown{
+    display:block;
+  }
+  display:none;
+}
+
+.channels--container .channel message{
+  &.is-shown{
+    display:block;
+  }
+  display:none;
+}
+
+.is-shown{
+  display:block
 }

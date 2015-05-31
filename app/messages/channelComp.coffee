@@ -10,20 +10,26 @@ UserListStore = require '../userlist/userListStore'
 
 module.exports = react.createClass
   displayName: 'Channel'
+  containerClass: 'channels--container'
+  channelClass: 'channel'
 
   getInitialState:->
     {channels: new store}
 
   componentDidMount: ->
 
+  toggleChannelVisibity: (event)->
+    $(event.target.parentElement.parentElement.getElementsByTagName('userlist')).toggleClass('is-shown')
+
   render: ->
-    <div>
+    component = this
+    <channels className={component.containerClass}>
       { @props.channels.map (channel)->
         data = channel.get 'data'
-        <div data-id={channel.get 'id'}>
-          <div>Channel: {data.name}</div>
+        <channel className={component.channelClass}  data-id={channel.get 'id'}>
+          <div onClick={component.toggleChannelVisibity}>Channel: {data.name}</div>
           <UserListComp users={new UserListStore(data.users)} />
           <MessageComp />
-        </div>
+        </channel>
       }
-    </div>
+    </channels>
