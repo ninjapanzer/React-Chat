@@ -2,6 +2,8 @@
 
 The point of this is to see what a prototype of a chat application in ReactJS would feel like.
 
+Check out the WIP <a href='http://ninjapanzer.github.io/React-Chat'>Demo</a>
+
 **My key identifiers are:**
 
 1. Is the code easy to follow
@@ -38,4 +40,4 @@ Project setup:
 - run `npm start`
 - `open http://localhost:8080`
 
-Configuration. This does not consume an api right now and uses local fakedata. You will find it in the fakedata folder. Feel free to expand the defitions to add more channels and users. 
+Configuration. This does not consume an api right now and uses local fakedata. You will find it in the fakedata folder. Feel free to expand the defitions to add more channels and users.
