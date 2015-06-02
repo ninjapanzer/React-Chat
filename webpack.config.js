@@ -1,5 +1,6 @@
 var webpack = require("webpack");
 var path = require("path");
+var SaveAssetsJson = require('assets-webpack-plugin');
 var bower_dir = __dirname + '/bower_components';
 var resolveBowerPath = function(componentPath) {
     return path.join(bower_dir, componentPath);
@@ -11,7 +12,7 @@ webpackConfig = {
   devtool: "source-map",
   output: {
     path: './dist',
-    filename: 'chat.min.js'
+    filename: 'chat-[hash].min.js'
   },
   externals: ['React', 'Flux', 'jQuery', '_', '$', 'Backbone'],
   module: {
@@ -22,7 +23,8 @@ webpackConfig = {
     ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({minimize: true})
+    new webpack.optimize.UglifyJsPlugin({minimize: true}),
+    new SaveAssetsJson()
   ],
   resolve: {
     extensions: ["", ".web.coffee", ".web.js", ".coffee", ".js"]
@@ -31,6 +33,7 @@ webpackConfig = {
 
 if(process.env.WEBPACK !== undefined){
   webpackConfig.output.path = './build';
+  webpackConfig.output.filenam = 'chat.min.js';
 }
 function escapeRegExpString(str) { return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&"); }
 function pathToRegExp(p) { return new RegExp("^" + escapeRegExpString(p)); }
