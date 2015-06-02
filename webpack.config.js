@@ -31,7 +31,7 @@ webpackConfig = {
 
 if(process.env.WEBPACK !== undefined){
   webpackConfig.output.path = './build';
-  webpackConfig.output.filenam = 'chat.min.js';
+  webpackConfig.output.filename = 'chat.min.js';
 }
 function escapeRegExpString(str) { return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&"); }
 function pathToRegExp(p) { return new RegExp("^" + escapeRegExpString(p)); }
