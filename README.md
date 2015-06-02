@@ -37,7 +37,7 @@ Project setup:
 - `bower install`
 - `npm install`
 - test with `npm run build`
-- run `npm start`
+- run `nf start -j Procfile.development`
 - `open http://localhost:8080`
 
 Configuration. This does not consume an api right now and uses local fakedata. You will find it in the fakedata folder. Feel free to expand the defitions to add more channels and users.

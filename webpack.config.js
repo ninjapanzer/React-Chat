@@ -5,8 +5,6 @@ var bower_dir = __dirname + '/bower_components';
 var resolveBowerPath = function(componentPath) {
     return path.join(bower_dir, componentPath);
 };
-var neat = require('node-neat').includePaths.reverse();
-console.log("style!css!sass?includePaths[]=" + neat);
 webpackConfig = {
   entry: './app/app.coffee',
   devtool: "source-map",
