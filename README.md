@@ -24,6 +24,9 @@ Check out the WIP <a href='http://ninjapanzer.github.io/React-Chat'>Demo</a>
 
 #### Running this
 
+- This now uses iojs so you should install nvm https://github.com/creationix/nvm and install iojs of at least version 2.3.0 as listed in the package.json
+- When converting you will probably have to reinstall your globals too if they don't work
+
 ##### Globals
 I am assuming that you have node and redis installed to build this project. Although I am not quite using redis yet the dev server spins up redis.
 
