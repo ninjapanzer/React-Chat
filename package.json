@@ -5,7 +5,7 @@
   "main": "chat.min.js",
   "scripts": {
     "start": "nf start -j Procfile.development",
-    "test": "jest",
+    "test": "mocha",
     "build": "WEBPACK=dev webpack",
     "dev": "WEBPACK=dev webpack-dev-server --devtool eval --progress --colors --content-base build"
   },
@@ -22,8 +22,6 @@
     "faye": "^1.1.1",
     "file-loader": "^0.8.4",
     "grunt": "^0.4.5",
-    "jest": "^0.1.40",
-    "jest-cli": "^0.4.5",
     "jshint": "^2.6.0",
     "jshint-loader": "^0.8.3",
     "jsx-loader": "^0.12.2",
